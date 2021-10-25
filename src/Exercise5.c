@@ -19,6 +19,7 @@ ________________________________________________________________________________
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 100
+#define Min 1e6
 
 void Array2Dconverter(int arr[], int a[SIZE][SIZE], int m, int n)
 {
@@ -35,9 +36,22 @@ void Array2Dconverter(int arr[], int a[SIZE][SIZE], int m, int n)
 
 void Ex5(int arr[], int m, int n){
 	int a[SIZE][SIZE];
+	int MAX[100];
 	Array2Dconverter(arr,a,m,n);
 	//Your codes here
-
+	for (int row = 0; row < m; row++) {
+	    int min = a[row][0];
+		for (int column =1; column < n; column++) {
+			if (a[row][column]<min) {
+				min=a[row][column];
+			    }
+		    } //printf("\nMin cua row %d : %d",row,min);
+		        MAX[row]= min;
+		} 
+		int max=MAX[0];
+		for (int i=1; i<n;i++) {
+		    if (max<MAX[i]) max = MAX[i];
+		} printf("%d",max);
 }
 
 int main(int argc, char *argv[]) {
