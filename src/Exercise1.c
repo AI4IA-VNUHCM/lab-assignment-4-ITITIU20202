@@ -22,7 +22,7 @@ void Ex1(int n){
 		for (int j =0;j<=i; j++) {
 			if (j==0 || j==i ) {
 				arr[i][j]=1;
-				printf("%d ",arr[i][j]);
+				printf("%d ",1);
 			} else if (j>0 && j<i) {
 				arr[i][j] = arr[i-1][j-1] + arr[i-1][j];
 				printf("%d ",arr[i][j]);
