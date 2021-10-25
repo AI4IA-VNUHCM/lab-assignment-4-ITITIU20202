@@ -51,7 +51,41 @@ void Ex3(int in_arr[], int n){
 	int a[SIZE][SIZE];
 	Array2Dconverter(in_arr,a,n,n);
 	//Your codes here
-	
+	//firt diagonal
+	for (int  edge=0; edge <n; edge ++) {
+		for (int k=0; k<n;k++) {
+			if (a[edge][edge]<a[k][k]) {
+				int temp1 = a[edge][edge];
+				a[edge][edge] = a[k][k];
+				a[k][k] = temp1;
+			}
+		}
+	}
+	//second diagonal
+	int dig[100];
+	for (int edge=n-1; edge >=0; edge--) {
+		for (int j=0; j<n;j++ ) {
+			if(j==n-1-edge) {
+				dig[j]=a[edge][j];
+			}
+		}
+	}
+	for (int j=0; j<n;j++ ) {
+		for (int k=0; k<n;k++) {
+			if(dig[j]>dig[k]) {
+				int temp2 = dig[j];
+				dig[j] =dig[k];
+				dig[k] = temp2;
+			}
+		}
+	}
+	for (int edge=n-1; edge >=0; edge--) {
+		for (int j=0; j<n;j++ ) {
+			if(j==n-1-edge) {
+				a[edge][j]=dig[j];
+			}
+		}
+	}
 	printArray(a,n,n);
 }
 
